@@ -5,7 +5,7 @@ lazy val root = (project in file(".")).
   settings(
     inThisBuild(List(
       organization := "com.example",
-      scalaVersion := "2.12.8"
+      scalaVersion := "2.11.12"
     )),
     name := "sparkProject",
     version := "0.0.1",

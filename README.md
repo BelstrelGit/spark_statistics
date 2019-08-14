@@ -13,9 +13,15 @@ crime_type - первая часть NAME из таблицы offense_codes, р�
 lat - широта координаты района, расчитанная как среднее по всем широтам инцидентов
 lng - долгота координаты района, расчитанная как среднее по всем долготам инцидентов
 Программа должна упаковываться в uber-jar (с помощью sbt-assembly), и запускаться командой
+
 spark-submit --master local[*] --class com.example.BostonCrimesMap /path/to/jar {path/to/crime.csv}
 {path/to/offense_codes.csv} {path/to/output_folder}
 где {...} - аргументы, передаваемые пользователем.
+
+Пример - 
+./spark-submit --master local[*] --class otus.BostonAnalytic /home/belstrel/sparksbt/target/scala-2.12/sparkProject-assembly-0.0.1.jar
+ "/home/belstrel/offense_codes.csv"  "/home/belstrel/crime.csv"  "/home/belstrel/result.parquet"
+
 Результатом её выполнения должен быть один файл в формате .parquet в папке path/to/output_folder.
 Для джойна со справочником необходимо использовать broadcast.
 
